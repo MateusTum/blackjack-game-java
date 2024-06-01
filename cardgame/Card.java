@@ -1,21 +1,22 @@
 package cardgame;
 
 public class Card {
-    public String suit;
-    public int value;
-    
-    public Card(String suit, int value) {
-        this.suit = suit;
+    private final int value;
+
+    public Card(int value) {
         this.value = value;
     }
 
-    public static void main(String[] args) {
-        Card card = new Card("test", 6);
-        System.out.println(card.suit + " " + card.value);
+    public int getValue() {
+        if (value > 10) {
+            return 10;
+        } else {
+            return value;
+        }
     }
 
     @Override
     public String toString() {
-        return suit + " " + value;
+        return String.valueOf(value);
     }
 }

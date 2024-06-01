@@ -4,23 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+    private final List<Card> cards;
+    private int totalCardsValue;
 
-    List<Card> cards = new ArrayList<>();
+    public Player() {
+        cards = new ArrayList<>();
+        totalCardsValue = 0;
+    }
 
     public void addCard(Card card) {
         cards.add(card);
+        totalCardsValue += card.getValue();
     }
 
     public List<Card> getCards() {
         return cards;
     }
 
-    public Integer getTotalCardsValue() {
-        int total = 0;
-        for (Card card : cards) {
-            total += card.value;
-        }
-        return total;
+    public int getTotalCardsValue() {
+        return totalCardsValue;
     }
-
 }
